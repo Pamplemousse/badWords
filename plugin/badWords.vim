@@ -21,5 +21,6 @@ fun! HighlightBadWords()
   endfor
 endfun
 
-autocmd BufRead,BufNewFile *.md,*.txt,*.rst call HighlightBadWords()
-autocmd InsertLeave *.md,*.txt,*.rst call HighlightBadWords()
+autocmd BufRead,BufNewFile,BufWinEnter *.md,*.txt,*.rst call HighlightBadWords()
+autocmd InsertEnter,InsertLeave *.md,*.txt,*.rst call HighlightBadWords()
+autocmd FileType markdown call HighlightBadWords()
